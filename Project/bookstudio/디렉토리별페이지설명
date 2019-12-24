@@ -1,0 +1,30 @@
+
+**디렉토리별  page **
+
+
+1. board 
+	-index.php
+	-write.php
+	
+	
+2. customer (회원부분)
+	완료-join.php : 회원가입 화면
+	완료-joinproc.php : 회원가입 시 내부로직 페이지
+	
+	
+3. main (잡다하게 다 모아둠)
+	
+	-index.php (main.php : 메인 게시판 고객은 이렇게되고 관리자는 통계 화면 하나 추가) iframe으로 index페이지 안에 너어둔것
+	-addBook.php : 새로운 책 등록 (관리자만)
+	완료-board.php : 공지사항으로 되어있는데 일반게시판으로 바꿀것!!
+	-booklist.php : 책 종류별 페이지 책 종류가 10개 이므로 10개의 게시판을 만들어야한다.
+	-cart.php : 고객이 주문한 책 목록 리스트 (고객 별  session)
+	-memberlist.php : 회원 관리화면 (관리자만)
+	-write.php : 게시판 글 작성 (고객 별 session)
+	
+4. statistics(관리자 페이지 통계)
+
+	완료-statistics_bookorder.php : 
+	완료-statistics_booktype.php : 
+	완료-statistics_customer.php : 
+	완료-statistics_main.php : 관리자 통계화면 총 합쳐놓은것
