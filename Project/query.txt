@@ -1,0 +1,168 @@
+select * from BOARD WHERE BOARD_TYPE = '이벤트'
+
+select * from BOARD WHERE BOARD_TYPE='이벤트' AND BOARD_TITLE LIKE '%".$_POST[searchText]."%'";
+
+ 
+    
+SELECT * FROM BOARD WHERE BOARD_TYPE ='이벤트' ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt”
+     
+ SELECT * FROM BOARD WHERE BOARD_TYPE='이벤트' AND BOARD_TITLE LIKE '%".$_POST[searchText]."%' ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt"
+     
+
+   
+    
+select BOARD_TITLE,BOARD_AUTHOR,BOARD_DATE,BOARD_TEXT FROM BOARD WHERE BOARD_NUM =".$_GET['num'];
+
+
+
+        select * from BOARD WHERE BOARD_TYPE = '자유게시판'";
+    
+
+    select * from BOARD WHERE BOARD_TYPE='자유게시판' AND BOARD_TITLE LIKE '%".$_POST[searchText]."%'";
+
+
+
+SELECT * FROM BOARD WHERE BOARD_TYPE ='자유게시판' ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt";
+
+ SELECT * FROM BOARD WHERE BOARD_TYPE='자유게시판' AND BOARD_TITLE LIKE '%".$_POST[searchText]."%' ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt";
+    
+
+ Select BOARD_TITLE,BOARD_AUTHOR,BOARD_DATE,BOARD_TEXT FROM BOARD WHERE BOARD_NUM =".$_GET['num'];
+
+select id from CUSTOMER where ID = RTRIM(LTRIM('".$_GET['name']."')) limit 0,1
+
+
+ select BOARD_TITLE,BOARD_AUTHOR,BOARD_DATE,BOARD_TEXT FROM BOARD WHERE BOARD_NUM =".$_GET['num']
+
+
+
+        $sql = "select * from BOARD"
+    
+        $sql = "select * from BOARD WHERE BOARD_TITLE LIKE '%".$_POST[searchText]."%'"
+
+
+
+        $query = "SELECT * FROM BOARD ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt";
+     
+
+        $query = "SELECT * FROM BOARD WHERE BOARD_TITLE LIKE '%".$_POST[searchText]."%' ORDER BY BOARD_NUM ASC LIMIT $start_list_query, $list_cnt"
+
+
+select id from CUSTOMER where id='".$id."' and pw='".$pw."'
+
+
+SELECT * FROM EBOOK WHERE ISBN='$isbn'
+
+select count(*) as field from `ORDER` where substring(isbn_mean,3,1) = 0
+
+
+select count(*) as field from `BOOK` where substring(isbn_mean,3,1) = 0
+select count(*) as field from `BOOK`
+
+
+
+
+select * from STASTICS
+SELECT * FROM STASTICS ORDER BY CUST_NUM ASC LIMIT $start_list_query, $list_cnt
+
+
+
+
+
+
+CREATE PROCEDURE countBook
+
+@isbn_mean : nvarchar(20),
+@value : nvarchar(20) 
+AS 
+BEGIN 
+	select count(*) as field from `BOOK` where substring(@isbn_mean,3,1) = @ value
+end
+
+    
+
+CREATE PROCEDURE countOder
+
+@isbn_mean: nvarchar(20),
+@value : nvarchar(20) 
+As
+Begin
+	Select count(*) as field from `ORDER` where substring(@isbn_mean,3,1) = @value
+End 
+
+
+
+
+CREATE PROCEDURE CUSTOMERINSERT 
+
+@NAME1 VARCHAR(40),
+@ID1 VARCHAR(20),
+@PW1 VARCHAR(20), 
+@ADDR_NUM1 INT,
+@ADDR_FIRST1 VARCHAR(40),
+@ADDR_SECOND1 VARCHAR(40),
+@GRADE1 VARCHAR(40),
+@MIL1 INT,
+@PHONE_NUM1 VARCHAR(11),
+@TEL_NUM1 VARCHAR(11))
+
+BEGIN
+
+INSERT INTO
+CUSTOMER(NAME,ID,PW,ADDR_NUM,ADDR_FIRST,ADDR_SECOND,GRADE,MIL,PHONE_ NUM,TEL_NUM) 
+
+VALUES(@NAME1,@ID1,@PW1,@ADDR_NUM1,@ADDR_FIRST1,@ADDR_SECOND1,@GRADE1,MIL1, @PHONE_NUM1, @TEL_NUM1)
+
+
+INSERT INTO STASTICS(CUST_NUM,FIELD0,FIELD1,FIELD2,FIELD3,FIELD4,FIELD5,FIELD6,FIELD7,FIELD8,FIEL D9) SELECT MAX(CUST_NUM),0,0,0,0,0,0,0,0,0,0 FROM CUSTOMER
+
+
+END 
+
+
+
+
+
+CREATE PROCEDURE ISBNTYPE2
+
+@CUSTOMNUM INT,@ISBNMEAN VARCHAR(5)
+
+BEGIN
+SET @NUM = SUBSTRING(ISBNMEAN,3,1)
+IF @NUM = 0 THEN
+UPDATE STASTICS SET FIELD0 = FIELD0+1 WHERE CUST_NUM = CUSTOMNUM
+END IF
+IF @NUM = 1 THEN
+UPDATE STASTICS SET FIELD1 = FIELD1+1 WHERE CUST_NUM = CUSTOMNUM
+END IF
+IF @NUM = 2 THEN
+UPDATE STASTICS SET FIELD2 = FIELD2+1 WHERE CUST_NUM =  CUSTOMNUM
+END IF
+IF @NUM = 3 THEN
+UPDATE STASTICS SET FIELD3 = FIELD3+1 WHERE CUST_NUM = CUSTOMNUM
+
+
+
+END IF
+IF @NUM = 4 THEN
+UPDATE STASTICS SET FIELD4 = FIELD4+1 WHERE CUST_NUM = CUSTOMNUM
+END IF
+IF @NUM = 5 THEN
+UPDATE STASTICS SET FIELD5 = FIELD5+1 WHERE CUST_NUM = CUSTOMNUM 
+END IF
+IF @NUM = 6 THEN
+UPDATE STASTICS SET FIELD6 = FIELD6+1 WHERE CUST_NUM = CUSTOMNUM 
+END IF
+IF @NUM = 7 THEN
+UPDATE STASTICS SET FIELD7 = FIELD7+1 WHERE CUST_NUM = CUSTOMNUM 
+END IF
+IF @NUM = 8 THEN
+UPDATE STASTICS SET FIELD8 = FIELD8+1 WHERE CUST_NUM = CUSTOMNUM 
+END IF
+IF @NUM = 9 THEN
+UPDATE STASTICS SET FIELD9 = FIELD9+1 WHERE CUST_NUM = CUSTOMNUM 
+END IF
+END
+
+
+
